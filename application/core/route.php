@@ -7,6 +7,7 @@ class Route
         var_dump($_SERVER['REQUEST_URI']);
         $controller_name = 'MainPage';
         $action_name = 'index';
+        $theme_id='0';
         $routes = explode('/', $_SERVER['REQUEST_URI']);
         var_dump($routes);
         var_dump($_SERVER['REQUEST_URI']);
@@ -19,6 +20,16 @@ class Route
 
 
         }
+        if (!empty($routes[3])) {
+
+            $_GET['post_id']=$routes[3];
+
+        }
+        if (stristr($action_name, '?')) {
+            $action_arr = explode('?', $action_name);
+            $action_name = $action_arr[0];
+        }
+
         $model_name = 'Model_' . $controller_name;
         var_dump($model_name);
         $controller_name = 'Controller_' . $controller_name;

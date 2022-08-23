@@ -4,6 +4,6 @@
     Пароль:<br/>
     <input type="text" name="password"/><br/>
     <button type="submit">
-        ewerer
+        push
     </button>
 

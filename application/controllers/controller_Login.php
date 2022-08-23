@@ -16,20 +16,22 @@ class controller_Login extends Controller
         $login = $_POST["login"];
         $password = $_POST["password"];
 
-
-        if (model_user::getData($login, $password)) {
-            $nickname = model_user::getNickname($login, $password);
-            $user = 'nickname';
+        if ($login != '' && $password != '') {
+            if (model_user::getData($login, $password)) {
+                $nickname = model_user::getNickname($login, $password);
                 session_unset();
-            $_SESSION['nickname']=$nickname;
-            echo "nickname user = " . $_COOKIE["nickname"];
-            var_dump($_COOKIE);
-            var_dump($_SESSION);
-            $this->view->generate('mainpage.php', '/template_view.php');
-        } else {
+                $_SESSION['nickname'] = $nickname;
+                $this->view->generate('mainpage.php', '/template_view.php');
+                echo $_SESSION['nickname'];
+            } else {
 
+                $this->view->generate('login.php', '/template_view.php');
+                echo '<br/>Неправильный логин или пароль.<br/>';
+            }
+
+        } else {
             $this->view->generate('login.php', '/template_view.php');
-            echo '<br/>Неправильный логин или пароль.<br/>';
+            echo '<br/>Заполните поля<br/>';
         }
 
     }
