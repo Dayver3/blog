@@ -1,4 +1,7 @@
-<form action="/login/log/" method="post">
+<?php
+
+?>
+<form action="/login/log" method="post">
     Логин:<br/>
     <input type="text" name="login"/><br/>
     Пароль:<br/>

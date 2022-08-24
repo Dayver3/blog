@@ -1,2 +1,2 @@
 <?php
-echo'Ahri top 1 champ - infa 100%';
+echo "Привіт, ".$_SESSION['nickname'].", вітаємо у нашому блозі";

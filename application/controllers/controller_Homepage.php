@@ -4,8 +4,12 @@ class controller_Homepage extends Controller
 {
     function action_index()
     {
-
-        echo $_SESSION['nickname'];
-        $this->view->generate('homepage.php', '/template_view.php');
+        if (isset($_SESSION['nickname'])) {
+            $this->view->generate('homepage.php', '/template_view.php');
+        }
+        else {
+            $errMsg = "Пожалуйста залогинтесь";
+            $this->view->generate('login.php', '/template_view.php', $errMsg);
+        }
     }
 }

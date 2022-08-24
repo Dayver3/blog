@@ -12,7 +12,6 @@ class controller_Login extends Controller
 
     function action_log()
     {
-        global $db;
         $login = $_POST["login"];
         $password = $_POST["password"];
 

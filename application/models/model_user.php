@@ -10,15 +10,11 @@ class model_user
         $result = $db->prepare($sql);
         $result->execute();
         $hash = $result->fetch();
-        var_dump($hash);
-        var_dump($password);
-        var_dump($hash);
         if (is_array($hash)) {
             if (password_verify($password, $hash[0])) {
                 $sql = "SELECT COUNT(login) FROM user WHERE login = '$login' AND password ='$password' ";
                 $result = $db->prepare($sql);
                 $result->execute();
-                echo 'valid';
                 return true;
             } else {
                 return false;
@@ -74,7 +70,6 @@ class model_user
         $result = $db->prepare($sql);
         $result->execute();
         $true_user = $result->fetchColumn();
-        var_dump($true_user);
         return $true_user;
 
     }
