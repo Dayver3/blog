@@ -22,7 +22,6 @@ class controller_Login extends Controller
                 session_unset();
                 $_SESSION['nickname'] = $nickname;
                 $this->view->generate('mainpage.php', '/template_view.php');
-                echo $_SESSION['nickname'];
             } else {
 
                 $this->view->generate('login.php', '/template_view.php');
