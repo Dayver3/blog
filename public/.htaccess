@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_URI} !.*\.(ico|gif|jpg|jpeg|png|js|css|woff|woff2|ttf|svg|flv|swf|mp4|avi)
+RewriteRule ^(.*)$ index.php
+RewriteRule ^ - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
