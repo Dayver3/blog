@@ -1,7 +1,13 @@
 <?php
 
+/**
+ *
+ */
 class controller_MainPageUser extends Controller
 {
+    /**
+     * @return void
+     */
     function action_index()
     {
         if (isset($_SESSION['nickname'])) {
@@ -12,6 +18,9 @@ class controller_MainPageUser extends Controller
         }
     }
 
+    /**
+     * @return void
+     */
     function action_mainPageUser()
     {
         if (isset($_SESSION['nickname'])) {
