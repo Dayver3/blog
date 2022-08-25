@@ -25,5 +25,15 @@ class controller_Theme extends Controller
             $this->view->generate('login.php', '/template_view.php', $errMsg);
         }
     }
+    function action_change()
+    {
+
+        $this->view->generate('refactor_post.php', '/template_view.php');
+    }
+    function action_changePost()
+    {
+        model_post::reSetPost();
+        $this->view->generate('homepage.php', '/template_view.php');
+    }
 
 }

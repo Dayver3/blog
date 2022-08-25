@@ -41,5 +41,15 @@ class model_post
         }
         return $data;
     }
+    static function reSetPost(){
+        $id= $_GET['id'];
+        $title=$_POST['title'];
+        $postData=$_POST['postData'];
+        $dt=time();
+        global $db;
+        $sql = "UPDATE post SET title='$title',text='$postData',time='$dt' WHERE post_id='$id'";
+        $result = $db->prepare($sql);
+        $result->execute();
+    }
 
 }

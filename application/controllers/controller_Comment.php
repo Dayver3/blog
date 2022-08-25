@@ -12,7 +12,22 @@ class controller_Comment extends Controller
     {
         model_comment::setComment();
         echo "Спасибо за коментарий";
-        $this->view->generate('mainpage.php', '/template_view.php');
+        $this->view->generate('mainpageUser.php', '/template_view.php');
     }
 
+    function action_change()
+    {
+        $this->view->generate('refactor_comment.php', '/template_view.php');
+    }
+
+    function action_changeCom()
+    {
+        model_comment::reSetCom();
+        $this->view->generate('homepage.php', '/template_view.php');
+    }
+    function action_delete()
+    {
+        model_comment::deleteCom();
+        $this->view->generate('homepage.php', '/template_view.php');
+    }
 }

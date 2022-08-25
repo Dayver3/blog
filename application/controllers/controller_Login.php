@@ -20,7 +20,7 @@ class controller_Login extends Controller
                 $nickname = model_user::getNickname($login, $password);
                 session_unset();
                 $_SESSION['nickname'] = $nickname;
-                $this->view->generate('mainpage.php', '/template_view.php');
+                $this->view->generate('homepage.php', '/template_view.php');
             } else {
 
                 $this->view->generate('login.php', '/template_view.php');

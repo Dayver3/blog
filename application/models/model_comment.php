@@ -16,7 +16,8 @@ class model_comment
         $result->execute();
         $commentData = $result->fetchObject();
         $dt=time();
-        $sql = "INSERT INTO comment(user_id,parents_com_id,post_id,text_comment,time) VALUES ('$commentData->user_id','$parents_com_id','$commentData->post_id','$comment','$dt')";
+        $user_id=model_user::getUserId();
+        $sql = "INSERT INTO comment(user_id,parents_com_id,post_id,text_comment,time) VALUES ('$user_id','$parents_com_id','$commentData->post_id','$comment','$dt')";
         $result = $db->prepare($sql);
         $result->execute();
 
@@ -45,7 +46,6 @@ class model_comment
         $result = $db->prepare($sql);
         $result->execute();
         $obj = $result->fetchAll();
-        var_dump($obj);
         return $obj;
 
     }
@@ -64,6 +64,24 @@ class model_comment
 
             }
         return self::$finalArr;
+    }
+    static function reSetCom(){
+        global $db;
+        $com_id= $_GET['id'];
+        $comData=$_POST['comData'];
+        $dt=time();
+        global $db;
+        $sql = "UPDATE comment SET text_comment='$comData',time='$dt' WHERE com_id='$com_id'";
+        $result = $db->prepare($sql);
+        $result->execute();
+    }
+    static function deleteCom(){
+        $com_id= $_GET['com_id'];
+        global $db;
+        $dt=time();
+        $sql = "UPDATE comment SET text_comment='коментарий удалён модерацией',time='$dt' WHERE com_id='$com_id'";
+        $result = $db->prepare($sql);
+        $result->execute();
     }
 
 }

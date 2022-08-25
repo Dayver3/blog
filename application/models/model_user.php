@@ -62,7 +62,15 @@ class model_user
 
 
     }
-
+static function getUserId(){
+        global $db;
+        $nickname = $_SESSION['nickname'];
+    $sql = "SELECT user_id FROM user WHERE nickname ='$nickname'";
+    $result = $db->prepare($sql);
+    $result->execute();
+    $id= $result->fetchColumn();
+    return $id;
+}
     static function isNickName($nickname)
     {
         global $db;
@@ -82,6 +90,38 @@ class model_user
         $result->execute();
         $true_user = $result->fetchColumn();
         return $true_user;
+    }
+
+    static function levelAccess()
+    {
+        global $db;
+        $nickname = $_SESSION['nickname'];
+        $sql = "SELECT level_access FROM user WHERE nickname = '$nickname' ";
+        $result = $db->prepare($sql);
+        $result->execute();
+        $access = $result->fetchColumn();
+        return $access;
+    }
+static function levelAccessById($id){
+        global $db;
+        $sql = "SELECT level_access FROM user WHERE user_id = '$id' ";
+        $result = $db->prepare($sql);
+        $result->execute();
+        $access = $result->fetchColumn();
+        return $access;
+}
+    static function getUserFromId($id)
+    {
+        global $db;
+        $sql = "SELECT nickname FROM user WHERE user_id = '$id' ";
+        $result = $db->prepare($sql);
+        $result->execute();
+        $userName = $result->fetchColumn();
+if(model_user::levelAccessById($id)){
+    $userName = 'admin '.$userName;
+}
+return $userName;
+
     }
 
 }
