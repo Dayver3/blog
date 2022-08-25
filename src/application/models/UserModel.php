@@ -1,6 +1,6 @@
 <?php
 
-class model_user
+class userModel
 {
     static function getData($login, $password)
     {
@@ -117,7 +117,7 @@ static function levelAccessById($id){
         $result = $db->prepare($sql);
         $result->execute();
         $userName = $result->fetchColumn();
-if(model_user::levelAccessById($id)){
+if(userModel::levelAccessById($id)){
     $userName = 'admin '.$userName;
 }
 return $userName;

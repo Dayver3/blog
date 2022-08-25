@@ -1,6 +1,6 @@
 <?php
 
-class controller_Homepage extends Controller
+class HomepageController extends Controller
 {
     function action_index()
     {

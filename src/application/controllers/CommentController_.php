@@ -1,6 +1,6 @@
 <?php
 
-class controller_Comment extends Controller
+class CommentController extends Controller
 {
     function action_index()
     {
@@ -10,7 +10,7 @@ class controller_Comment extends Controller
 
     function action_comment()
     {
-        model_comment::setComment();
+        commentModel::setComment();
         echo "Спасибо за коментарий";
         $this->view->generate('mainpageUser.php', '/template_view.php');
     }
@@ -22,12 +22,12 @@ class controller_Comment extends Controller
 
     function action_changeCom()
     {
-        model_comment::reSetCom();
+        commentModel::reSetCom();
         $this->view->generate('homepage.php', '/template_view.php');
     }
     function action_delete()
     {
-        model_comment::deleteCom();
+        commentModel::deleteCom();
         $this->view->generate('homepage.php', '/template_view.php');
     }
 }

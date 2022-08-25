@@ -1,8 +1,8 @@
 <?php
-$data = model_theme::getData();
+$data = themeModel::getData();
 $dt = $data->time;
 $dt = date("Y-m-d H:i:s", $dt);
-$datum = model_comment::getComment(0,0);
+$datum = commentModel::getComment(0,0);
 ?>
 </form>
 Тема:
@@ -14,17 +14,16 @@ $datum = model_comment::getComment(0,0);
 <?php
 echo"<form action='/comment/index/?id=$data->post_id&com_id=0'method='post'></post>";
 echo "<button type='submit'>коментировать</button></form>";
-if(model_user::levelAccess()){
+if(userModel::levelAccess()){
     echo"<form action='/theme/change/?id=$data->post_id'method='post'></post>";
     echo "<button type='submit'>изменить</button></form>";
 }
 foreach ($datum as $value) {
-    var_dump($value);
-    $userId=model_user::getUserFromId($value->user_id);
+    $userId=userModel::getUserFromId($value->user_id);
     echo"<form action='/comment/index/?id=$data->post_id&com_id=$value->com_id'method='post'>";
     echo"<div style='margin-left:" . ($value->level * 25) . "px;'>" . $value->text_comment ." by ".$userId.  "</div>";
     echo "<button type='submit'>коментировать</button></form>";
-    if(model_user::levelAccess()){
+    if(userModel::levelAccess()){
         echo"<form action='/comment/change/?com_id=$value->com_id'method='post'></post>";
         echo "<button type='submit'>изменить</button></form>";
         echo"<form action='/comment/delete/?com_id=$value->com_id'method='post'></post>";

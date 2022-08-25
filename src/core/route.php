@@ -1,20 +1,23 @@
 <?php
 
-class Route
+class route
 {
-    static function start()
+    private $controller_name;
+    private $action_name;
+
+   function __construct()
     {
-        $controller_name = 'MainPage';
-        $action_name = 'index';
+        $this->controller_name='MainPage';
+        $this->action_name = 'index';
         $theme_id = '0';
         $routes = explode('/', $_SERVER['REQUEST_URI']);
 
         if (!empty($routes[1])) {
-            $controller_name = $routes[1];
+            $this->controller_name = $routes[1];
 
         }
         if (!empty($routes[2])) {
-            $action_name = $routes[2];
+            $this->action_name = $routes[2];
 
 
         }
@@ -23,29 +26,24 @@ class Route
             $_GET['post_id'] = $routes[3];
 
         }
-        if (stristr($action_name, '?')) {
-            $action_arr = explode('?', $action_name);
-            $action_name = $action_arr[0];
+        if (stristr($this->action_name, '?')) {
+            $action_arr = explode('?', $this->action_name);
+            $this->action_name = $action_arr[0];
         }
 
-        $model_name = 'Model_' . $controller_name;
-        $controller_name = 'Controller_' . $controller_name;
-        $action_name = 'action_' . $action_name;
-        $controller_file = strtolower($model_name) . '.php';
-        $controller_path = "application/models/" . $controller_file;
-        if (file_exists($controller_path)) {
-            include "application/models/" . $controller_file;
-        } else {
-            Route::errMsg();
-        }
-        $controller = new $controller_name;
-        $action = $action_name;
-        if (method_exists($controller, $action)) {
-            $controller->$action();
-        } else {
-            Route::errMsg();
-        }
+
     }
+
+    public function getController()
+    {
+        return $this->controller_name;
+    }
+
+    public function getAction()
+    {
+        return $this->action_name;
+    }
+
 
     static function errMsg()
     {

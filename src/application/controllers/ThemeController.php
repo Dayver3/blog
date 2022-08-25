@@ -1,12 +1,12 @@
 <?php
 
-class controller_Theme extends Controller
+class ThemeController extends Controller
 {
     function action_index()
     {
         if (isset($_SESSION['nickname'])) {
             $post_id = $_GET['id'];
-            model_comment::$datum = model_comment::getCommentPost();
+            commentModel::$datum = commentModel::getCommentPost();
             $this->view->generate('theme.php', '/template_view.php');
         } else {
             $errMsg = "Пожалуйста залогинтесь";
@@ -18,7 +18,7 @@ class controller_Theme extends Controller
     {
         if (isset($_SESSION['nickname'])) {
             $post_id = $_GET['id'];
-            model_comment::$datum = model_comment::getCommentPost();
+            commentModel::$datum = commentModel::getCommentPost();
             $this->view->generate('theme.php', '/template_view.php');
         }else{
             $errMsg = "Пожалуйста залогинтесь";
@@ -32,7 +32,7 @@ class controller_Theme extends Controller
     }
     function action_changePost()
     {
-        model_post::reSetPost();
+        postModel::reSetPost();
         $this->view->generate('homepage.php', '/template_view.php');
     }
 

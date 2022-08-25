@@ -3,7 +3,7 @@
 /**
  *
  */
-class controller_MainPageUser extends Controller
+class MainPageUserController extends Controller
 {
     /**
      * @return void
@@ -25,11 +25,11 @@ class controller_MainPageUser extends Controller
     {
         if (isset($_SESSION['nickname'])) {
             if (isset($_SESSION['nickname'])) {
-                $userId = model_post::getUserId();
+                $userId = postModel::getUserId();
                 $dt = time();
                 $postData = $_POST["postData"];
                 $title = $_POST["theme"];
-                model_post::setPost($userId, $dt, $postData, $title);
+                postModel::setPost($userId, $dt, $postData, $title);
                 $data = [];
                 $this->view->generate('mainpageUser.php', '/template_view.php');
             } else {

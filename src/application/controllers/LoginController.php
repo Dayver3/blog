@@ -1,6 +1,6 @@
 <?php
 
-class controller_Login extends Controller
+class LoginController extends Controller
 {
     function action_index()
     {
@@ -16,8 +16,8 @@ class controller_Login extends Controller
         $password = $_POST["password"];
 
         if ($login != '' && $password != '') {
-            if (model_user::getData($login, $password)) {
-                $nickname = model_user::getNickname($login, $password);
+            if (userModel::getData($login, $password)) {
+                $nickname = userModel::getNickname($login, $password);
                 session_unset();
                 $_SESSION['nickname'] = $nickname;
                 $this->view->generate('homepage.php', '/template_view.php');

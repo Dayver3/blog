@@ -1,10 +1,10 @@
 <?php
 
-class controller_MainPage extends Controller
+class MainPageController extends Controller
 {
     function action_index()
     {
-        model_post::getData();
+        postModel::getData();
         $this->view->generate('mainpage.php', '/template_view.php');
 
     }
@@ -12,7 +12,7 @@ class controller_MainPage extends Controller
     function action_mainPage()
     {
         if (isset($_SESSION['nickname'])) {
-            model_post::getData();
+            postModel::getData();
             $this->view->generate('mainpage.php', '/template_view.php');
         } else {
             $errMsg="Пожалуйста залогинтесь";

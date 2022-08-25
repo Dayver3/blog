@@ -1,5 +1,5 @@
 <?php
-$data = model_theme::getData();
+$data = themeModel::getData();
 var_dump($data);
 $com_id=$_GET['com_id']
 ?>

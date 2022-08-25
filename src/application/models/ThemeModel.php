@@ -1,6 +1,6 @@
 <?php
 
-class model_theme
+class themeModel
 {
     static function getData(){
         global $db;
