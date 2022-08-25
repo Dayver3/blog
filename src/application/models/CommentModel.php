@@ -1,9 +1,10 @@
 <?php
 
-class model_comment
+class commentModel
 {
     public static $datum;
     public static $finalArr =[];
+
 
     static function setComment()
     {
@@ -16,7 +17,7 @@ class model_comment
         $result->execute();
         $commentData = $result->fetchObject();
         $dt=time();
-        $user_id=model_user::getUserId();
+        $user_id=userModel::getUserId();
         $sql = "INSERT INTO comment(user_id,parents_com_id,post_id,text_comment,time) VALUES ('$user_id','$parents_com_id','$commentData->post_id','$comment','$dt')";
         $result = $db->prepare($sql);
         $result->execute();
