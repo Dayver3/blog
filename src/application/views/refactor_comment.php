@@ -1,5 +1,5 @@
 <?php
-$id=$_GET['com_id'];
+$id=commentModel::getFromGET('com_id');
 echo"<form action='/comment/changeCom/?id= $id' method='post'>";
 ?>
 Текст коментария:<br/>

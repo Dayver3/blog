@@ -1,6 +1,6 @@
 <?php
 
-class postModel
+class postModel extends Model
 {
     static function getUserId()
     {

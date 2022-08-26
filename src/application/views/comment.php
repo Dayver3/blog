@@ -1,7 +1,6 @@
 <?php
 $data = themeModel::getData();
-var_dump($data);
-$com_id=$_GET['com_id']
+$com_id=commentModel::getFromGET('com_id');
 ?>
 <?php echo"<form action='/comment/comment/?id=$data->post_id&com_id=$com_id' method='post'>"?>
     Коментарий:<br/>

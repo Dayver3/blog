@@ -1,6 +1,6 @@
 <?php
 
-class themeModel
+class themeModel extends Model
 {
     static function getData(){
         global $db;

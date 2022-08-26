@@ -1,6 +1,6 @@
 <?php
 
-class commentModel
+class commentModel extends Model
 {
     public static $datum;
     public static $finalArr =[];
@@ -84,5 +84,8 @@ class commentModel
         $result = $db->prepare($sql);
         $result->execute();
     }
-
+static function getFromGET($id){
+    $data=$_GET[$id];
+    return $data;
+}
 }

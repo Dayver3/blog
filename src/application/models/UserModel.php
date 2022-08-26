@@ -1,6 +1,6 @@
 <?php
 
-class userModel
+class userModel extends Model
 {
     static function getData($login, $password)
     {
