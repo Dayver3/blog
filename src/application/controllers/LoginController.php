@@ -15,7 +15,7 @@ class LoginController extends Controller
         $login = $_POST["login"];
         $password = $_POST["password"];
 
-        if ($login != '' && $password != '') {
+        if ($login ===null || $password ===null) {
             if (userModel::getData($login, $password)) {
                 $nickname = userModel::getNickname($login, $password);
                 session_unset();
