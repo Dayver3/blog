@@ -1,6 +1,6 @@
 <?php
 
-class commentModel
+class commentModel extends Model
 {
     public static $datum;
     public static $finalArr =[];
