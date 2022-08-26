@@ -84,5 +84,8 @@ class commentModel extends Model
         $result = $db->prepare($sql);
         $result->execute();
     }
-
+static function getFromGET($id){
+    $data=$_GET[$id];
+    return $data;
+}
 }
