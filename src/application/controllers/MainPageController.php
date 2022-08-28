@@ -2,14 +2,14 @@
 
 class MainPageController extends Controller
 {
-    function action_index()
+    function indexAction()
     {
         postModel::getData();
         $this->view->generate('mainpage.php', '/template_view.php');
 
     }
 
-    function action_mainPage()
+    function mainPageAction()
     {
         if (isset($_SESSION['nickname'])) {
             postModel::getData();

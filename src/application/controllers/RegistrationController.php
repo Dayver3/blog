@@ -2,20 +2,19 @@
 
 class RegistrationController extends Controller
 {
-    function action_index()
+    function indexAction()
     {
 
         $this->view->generate('registration.php', '/template_view.php');
     }
 
-    function action_registration()
+    function registrationAction()
     {
         global $db;
         $login = $_POST["login"];
         $password = $_POST["password"];
         $password = password_hash($password, PASSWORD_BCRYPT);
         $nickname = $_POST["nickname"];
-        var_dump($password);
         if (userModel::isLogin($login)===$login) {
             echo '<br/>Такой логин есть, выберите другой';
             $this->view->generate('registration.php', '/template_view.php');

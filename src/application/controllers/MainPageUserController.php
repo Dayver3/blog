@@ -8,7 +8,7 @@ class MainPageUserController extends Controller
     /**
      * @return void
      */
-    function action_index()
+    function indexAction()
     {
         if (isset($_SESSION['nickname'])) {
             $this->view->generate('mainpageUser.php', '/template_view.php');
@@ -21,7 +21,7 @@ class MainPageUserController extends Controller
     /**
      * @return void
      */
-    function action_mainPageUser()
+    function mainPageUserAction()
     {
         if (isset($_SESSION['nickname'])) {
             if (isset($_SESSION['nickname'])) {

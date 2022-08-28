@@ -2,7 +2,7 @@
 
 class ThemeController extends Controller
 {
-    function action_index()
+    function indexAction()
     {
         if (isset($_SESSION['nickname'])) {
             $post_id = $_GET['id'];
@@ -14,7 +14,7 @@ class ThemeController extends Controller
         }
     }
 
-    function action_theme()
+    function themeAction()
     {
         if (isset($_SESSION['nickname'])) {
             $post_id = $_GET['id'];
@@ -25,12 +25,12 @@ class ThemeController extends Controller
             $this->view->generate('login.php', '/template_view.php', $errMsg);
         }
     }
-    function action_change()
+    function changeAction()
     {
 
         $this->view->generate('refactor_post.php', '/template_view.php');
     }
-    function action_changePost()
+    function changePostAction()
     {
         postModel::reSetPost();
         $this->view->generate('homepage.php', '/template_view.php');

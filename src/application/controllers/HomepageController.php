@@ -2,7 +2,7 @@
 
 class HomepageController extends Controller
 {
-    function action_index()
+    function indexAction()
     {
         if (isset($_SESSION['nickname'])) {
             $this->view->generate('homepage.php', '/template_view.php');

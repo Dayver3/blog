@@ -40,7 +40,7 @@ final class App
         $controller_name = $route->getController();
         $action_name = $route->getAction();
         $controller_name =  $controller_name.'Controller';
-        $action_name = 'action_' . $action_name;
+        $action_name =  $action_name.'Action';
         $controller = new $controller_name();
         $action = $action_name;
         if (method_exists($controller, $action)) {
