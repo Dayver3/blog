@@ -2,7 +2,7 @@
 
 class LoginController extends Controller
 {
-    function action_index()
+    function indexAction()
     {
 
 
@@ -10,7 +10,7 @@ class LoginController extends Controller
 
     }
 
-    function action_log()
+    function logAction()
     {
         $login = $_POST["login"];
         $password = $_POST["password"];
