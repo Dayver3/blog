@@ -24,9 +24,9 @@ foreach ($datum as $value) {
     echo"<div style='margin-left:" . ($value->level * 25) . "px;'>" . $value->text_comment ." by ".$userId.  "</div>";
     echo "<button type='submit'>коментировать</button></form>";
     if(userModel::levelAccess()){
-        echo"<form action='/comment/change/?com_id=$value->com_id'method='post'></post>";
+        echo"<form action='/comment/change/?com_id=$value->com_id'method='post'></form>";
         echo "<button type='submit'>изменить</button></form>";
-        echo"<form action='/comment/delete/?com_id=$value->com_id'method='post'></post>";
+        echo"<form action='/comment/delete/?com_id=$value->com_id'method='post'></form>>";
         echo "<button type='submit'>удалить</button></form>";
     }
 }
