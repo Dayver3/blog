@@ -24,7 +24,7 @@ class controller_Login extends Controller
             } else {
 
                 $this->view->generate('login.php', '/template_view.php');
-                echo '<br/>Неправильный логин или пароль.<br/>';
+                echo "<br/>Неправильный логин или пароль<br/>";
             }
 
         } else {

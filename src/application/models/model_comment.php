@@ -3,7 +3,7 @@
 class model_comment
 {
     public static $datum;
-    public static $finalArr =[];
+    public static array $finalArr =[];
 
     static function setComment()
     {

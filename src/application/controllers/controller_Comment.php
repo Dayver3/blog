@@ -11,7 +11,7 @@ class controller_Comment extends Controller
     function action_comment()
     {
         model_comment::setComment();
-        echo "Спасибо за коментарий";
+        echo "thx gor comment";
         $this->view->generate('mainpageUser.php', '/template_view.php');
     }
 

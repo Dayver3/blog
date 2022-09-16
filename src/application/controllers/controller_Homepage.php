@@ -8,7 +8,7 @@ class controller_Homepage extends Controller
             $this->view->generate('homepage.php', '/template_view.php');
         }
         else {
-            $errMsg = "Пожалуйста залогинтесь";
+            $errMsg = "plz login";
             $this->view->generate('login.php', '/template_view.php', $errMsg);
         }
     }

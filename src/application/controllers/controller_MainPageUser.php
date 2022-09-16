@@ -25,11 +25,11 @@ class controller_MainPageUser extends Controller
                 $this->view->generate('mainpageUser.php', '/template_view.php');
             } else {
 
-                $errMsg = "Пожалуйста залогинтесь";
+                $errMsg = "plz login";
                 $this->view->generate('login.php', '/template_view.php', $errMsg);
             }
         } else {
-            $errMsg = "Пожалуйста залогинтесь";
+            $errMsg = "plz login";
             $this->view->generate('login.php', '/template_view.php', $errMsg);
         }
     }
