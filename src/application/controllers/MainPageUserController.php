@@ -12,10 +12,12 @@ class MainPageUserController extends Controller
     {
         if (isset($_SESSION['nickname'])) {
             $this->view->generate('mainpageUser.php', '/template_view.php');
-        } else {
+        } 
+            else 
+            {
             $errMsg = "Пожалуйста залогинтесь";
             $this->view->generate('login.php', '/template_view.php', $errMsg);
-        }
+            }
     }
 
     /**
