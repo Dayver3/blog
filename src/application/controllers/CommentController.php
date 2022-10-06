@@ -27,6 +27,7 @@ class CommentController extends Controller
     }
     function deleteAction()
     {
+        
         commentModel::deleteCom();
         $this->view->generate('homepage.php', '/template_view.php');
     }
