@@ -20,10 +20,12 @@ class ThemeController extends Controller
             $post_id = $_GET['id'];
             commentModel::$datum = commentModel::getCommentPost();
             $this->view->generate('theme.php', '/template_view.php');
-        }else{
+        }
+            else
+            {
             $errMsg = "Пожалуйста залогинтесь";
             $this->view->generate('login.php', '/template_view.php', $errMsg);
-        }
+            }
     }
     function changeAction()
     {
