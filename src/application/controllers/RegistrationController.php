@@ -22,9 +22,7 @@ class RegistrationController extends Controller
         } elseif (userModel::isNickName($nickname)===$nickname) {
             echo '<br/>Такой ник занят, выберите другой';
             $this->view->generate('registration.php', '/template_view.php');
-        }   
-            else 
-            {
+        } else{
             $new_user = userModel::setData($login, $password, $nickname);
             $this->view->generate('mainpage.php', '/template_view.php');
             }
