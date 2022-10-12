@@ -22,8 +22,7 @@ class LoginController extends Controller
                 $_SESSION['nickname'] = $nickname;
                 $this->view->generate('homepage.php', '/template_view.php');
             } 
-            else 
-            {
+            else {
                 $this->view->generate('login.php', '/template_view.php');
                 echo '<br/>Неправильный логин или пароль.<br/>';
             }
