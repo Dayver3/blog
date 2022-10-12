@@ -18,7 +18,6 @@ class RegistrationController extends Controller
         if (userModel::isLogin($login)===$login) {
             echo '<br/>Такой логин есть, выберите другой';
             $this->view->generate('registration.php', '/template_view.php');
-            var_dump(userModel::isNickName($nickname));
         } elseif (userModel::isNickName($nickname)===$nickname) {
             echo '<br/>Такой ник занят, выберите другой';
             $this->view->generate('registration.php', '/template_view.php');
@@ -26,7 +25,6 @@ class RegistrationController extends Controller
             $new_user = userModel::setData($login, $password, $nickname);
             $this->view->generate('mainpage.php', '/template_view.php');
             }
-
         // $this->view->generate('login.php', '/template_view.php');
         return 1;
     }
