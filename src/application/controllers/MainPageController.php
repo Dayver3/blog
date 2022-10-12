@@ -15,9 +15,7 @@ class MainPageController extends Controller
             postModel::getData();
             $this->view->generate('mainpage.php', '/template_view.php');
         } 
-        else 
-        {
-            
+        else {
             $errMsg = "Пожалуйста залогинтесь";
             $this->view->generate('loginpage.php', '/template_view.php', $errMsg);
         }
